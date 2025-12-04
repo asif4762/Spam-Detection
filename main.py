@@ -44,7 +44,6 @@ class Message(BaseModel):
 
 app = FastAPI()
 
-# 🔥 FIX: Add CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
