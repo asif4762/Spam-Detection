@@ -8,6 +8,7 @@ from nltk.stem.porter import PorterStemmer
 from fastapi.middleware.cors import CORSMiddleware
 
 nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('stopwords')
 ps = PorterStemmer()
 
