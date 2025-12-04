@@ -5,9 +5,9 @@ import nltk
 import string
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+from fastapi.middleware.cors import CORSMiddleware
 
 nltk.download('punkt')
-nltk.download('punkt_tab')
 nltk.download('stopwords')
 ps = PorterStemmer()
 
@@ -43,6 +43,15 @@ class Message(BaseModel):
 
 
 app = FastAPI()
+
+# 🔥 FIX: Add CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def root():
